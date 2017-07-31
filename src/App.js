@@ -48,8 +48,9 @@ class App extends Component {
       data: JSON.stringify({nome:this.state.nome, email:this.state.email, senha:this.state.senha}),
       url: 'http://cdc-react.herokuapp.com/api/autores',
       success:function(response) {
+        this.setState({lista:response});
         console.log('enviado com sucesso');
-      },
+      }.bind(this),
       error:function(){
         console.log('erro');
       }
@@ -76,7 +77,7 @@ class App extends Component {
 
           <div id="main">
             <div className="header">
-              {// <h1>Cadastro de Autores</h1>}
+               { /*<h1>Cadastro de Autores</h1>*/}
             </div>
             <div className="content" id="content">
               <div className="pure-form pure-form-aligned">
